@@ -1,0 +1,123 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  /* Prevent scrolling on the main page */
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.chat-container {
+  flex: 1;
+  overflow-y: auto;
+  /* Enable vertical scrolling */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #000;
+}
+
+.chat-bubble {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 15px;
+  /* Rounded corners */
+  background-color: white;
+  /* White background */
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: black;
+  width: fit-content;
+}
+
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  background-color: gray;
+  margin-right: 10px;
+}
+
+.chat-message {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.chat-message strong {
+  margin-right: 5px;
+  /* Space between the name and the message */
+}
+
+.chat-message span {
+  word-wrap: break-word;
+}
+
+.user-count-bar {
+  padding: 10px;
+  background-color: #f1f1f1;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  position: relative;
+  z-index: 0;
+  margin: -5px 2px -5px -2px;
+}
+
+.avatar-image.loaded {
+  opacity: 1;
+}
+
+.avatar-container {
+  position: relative;
+  display: inline-block;
+}
+
+.status-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  margin: -5px 2px -5px -2px;
+}
+
+.avatar-image::before {
+  content: url('assets/images/noob.png');
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: block;
+  opacity: 1;
+}
+
+.avatar-image.loaded::before {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
